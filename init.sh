@@ -6,6 +6,9 @@ apt-add-repository ppa:fish-shell/release-3
 # install tools
 apt install fish tmux python3-pip
 
+# install tmux plugins manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 # install fonts
 apt install fonts-powerline
 
@@ -20,4 +23,4 @@ ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 
 # initialize Fish configuration
-init.fish | fish
+fish init.fish
