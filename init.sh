@@ -7,6 +7,7 @@ apt-add-repository ppa:fish-shell/release-3
 apt install fish tmux python3-pip
 
 # install tmux plugins manager
+rm -rf ~/.tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # install fonts
