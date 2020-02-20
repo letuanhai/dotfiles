@@ -17,11 +17,12 @@ apt install fonts-powerline
 chsh -s /usr/bin/fish
 
 # remove existing configs
-rm -rf ~/.vim ~/.vimrc ~/.tmux ~/.tmux.conf 2> /dev/null
+rm -rf ~/.vim ~/.config/fish/config.fish ~/.vimrc ~/.tmux ~/.tmux.conf 2> /dev/null
+
+# make necessary directory
+mkdir ~/.config ~/.config/fish
 
 # linking configs
 ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
-
-# initialize Fish configuration
-fish init.fish
+ln -s ~/dotfiles/config.fish ~/.config/fish/config.fish
