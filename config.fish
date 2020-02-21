@@ -12,3 +12,5 @@ export DISPLAY=:0
 eval /d/wsl/miniconda3/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
 
+# Connect to Docker daemon
+export DOCKER_HOST=tcp://localhost:2375
