@@ -17,7 +17,7 @@ apt install fonts-powerline
 chsh -s /usr/bin/fish
 
 # remove existing configs
-rm -rf ~/.vim ~/.config/fish/config.fish ~/.vimrc ~/.tmux ~/.tmux.conf 2> /dev/null
+rm -rf ~/.vim ~/.config/fish/config.fish /etc/wsl.conf ~/.vimrc ~/.tmux ~/.tmux.conf 2> /dev/null
 
 # make necessary directory
 mkdir ~/.config ~/.config/fish
@@ -26,3 +26,4 @@ mkdir ~/.config ~/.config/fish
 ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/config.fish ~/.config/fish/config.fish
+ln -s ~/dotfiles/wsl.conf /etc/wsl.conf
