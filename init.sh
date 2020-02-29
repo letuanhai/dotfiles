@@ -1,23 +1,17 @@
 #!/bin/bash
 
 # add Fish repository
-apt-add-repository ppa:fish-shell/release-3
+sudo apt-add-repository -y ppa:fish-shell/release-3
 
 # install tools
-apt install fish tmux python3-pip
-
-# install tmux plugins manager
-rm -rf ~/.tmux
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-# install fonts
-apt install fonts-powerline
+sudo apt-get -y install fish tmux python3-pip fonts-powerline
 
 # set fish shell as default shell
 chsh -s /usr/bin/fish
 
 # remove existing configs
-rm -rf ~/.vim ~/.config/fish/config.fish /etc/wsl.conf ~/.vimrc ~/.tmux ~/.tmux.conf 2> /dev/null
+rm -rf ~/.vim ~/.config/fish/config.fish ~/.vimrc ~/.tmux ~/.tmux.conf 2> /dev/null
+sudo rm -rf /etc/wsl.conf
 
 # make necessary directory
 mkdir ~/.config ~/.config/fish
@@ -26,4 +20,7 @@ mkdir ~/.config ~/.config/fish
 ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/config.fish ~/.config/fish/config.fish
-ln -s ~/dotfiles/wsl.conf /etc/wsl.conf
+sudo ln -s ~/dotfiles/wsl.conf /etc/wsl.conf
+
+# install tmux plugins manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
