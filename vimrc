@@ -55,7 +55,7 @@ colorscheme gruvbox
 set termguicolors
 
 " Gruvbox comes with both a dark and light theme.
-set background=dark
+set background=light
 
 " Gruvbox has 'hard', 'medium' (default) and 'soft' contrast options.
 let g:gruvbox_contrast_dark='medium'
