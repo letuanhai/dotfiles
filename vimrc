@@ -99,7 +99,7 @@ nnoremap <Leader>fb :Grepper<Space>-buffers<Space>-query<Space>-<Space>
 
 " ctrlpvim/ctrlp.vim
 " -------------------------------
-" Space p opens Fuzzy Finder
+" Leader+p opens Fuzzy Finder
 nnoremap <Leader>p :CtrlP<CR>
 " -------------------------------
 

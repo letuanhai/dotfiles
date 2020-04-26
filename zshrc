@@ -1,11 +1,11 @@
-##### WSL settings #####
-
-# WSL X server setting
-export DISPLAY=:0
-
-# Connect to Docker daemon
-export DOCKER_HOST=tcp://localhost:2375
-
+###### WSL settings #####
+#
+## WSL X server setting
+#export DISPLAY=:0
+#
+## Connect to Docker daemon
+#export DOCKER_HOST=tcp://localhost:2375
+#
 ########################
 
 # Enabling Color Prompts

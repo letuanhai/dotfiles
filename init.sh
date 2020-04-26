@@ -17,7 +17,7 @@ mkdir ~/.config
 ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/zshrc ~/.zshrc
-sudo ln -s ~/dotfiles/wsl.conf /etc/wsl.conf
+#sudo ln -s ~/dotfiles/wsl.conf /etc/wsl.conf
 
 # install tmux plugins manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
