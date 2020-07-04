@@ -20,6 +20,7 @@ mkdir -p ~/.config ~/.config/nvim ~/.config/fish ~/.config/fish/functions
 ln -s ~/dotfiles/alacritty.yml ~/.alacritty.yml
 ln -s ~/dotfiles/config.fish ~/.config/fish/config.fish
 ln -s ~/dotfiles/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish
+ln -s ~/dotfiles/fish_variables ~/.config/fish/fish_variables
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/vimrc ~/.config/nvim/init.vim
 

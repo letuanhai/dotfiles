@@ -13,7 +13,7 @@ autoload colors zsh/terminfo
 colors
 
 # Autostart Tmux
-if [ "$TMUX" = "" ]; then tmux; fi
+#if [ "$TMUX" = "" ]; then tmux; fi
 
 # Auto CD
 setopt auto_cd
@@ -45,7 +45,10 @@ antigen bundle git
 antigen bundle command-not-found
 
 # Theme
-antigen theme denysdovhan/spaceship-prompt
+#antigen theme denysdovhan/spaceship-prompt
+antigen theme robbyrussell
 
 # Tell Antigen that you're done.
 antigen apply
+
+alias v='nvim'
