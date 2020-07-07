@@ -4,14 +4,16 @@
 brew cask install alacritty font-fira-code
 brew install fish tmux neovim reattach-to-user-namespace
 
-# set fish as default shell (not use)
-which fish | sudo tee -a /etc/shells
-fishloc=$(which fish)
-chsh -s $fishloc
+# set fish as default shell (no need if use zsh)
+#which fish | sudo tee -a /etc/shells
+#fishloc=$(which fish)
+#chsh -s $fishloc
 
 # remove existing configs
 rm -rf ~/.alacritty.yml ~/.config/fish ~/.tmux ~/.tmux.conf 2> /dev/null
 rm -rf ~/.vim ~/.vimrc ~/.config/nvim 2> /dev/null
+rm -rf ~/.zshrc 2> /dev/null
+
 
 # make necessary directory
 mkdir -p ~/.config ~/.config/nvim ~/.config/fish ~/.config/fish/functions
@@ -23,6 +25,7 @@ ln -s ~/dotfiles/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish
 ln -s ~/dotfiles/fish_variables ~/.config/fish/fish_variables
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/vimrc ~/.config/nvim/init.vim
+ln -s ~/dotfiles/zshrc ~/.zshrc
 
 # install tmux plugins manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
