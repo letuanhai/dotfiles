@@ -4,7 +4,7 @@
 call plug#begin('~/.vim/plugged')
 
 " Theme Gruvbox
-"Plug 'gruvbox-community/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 
 " Indent Guides
 Plug 'Yggdroot/indentLine'

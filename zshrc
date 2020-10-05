@@ -19,8 +19,8 @@ colors
 setopt auto_cd
 
 # Spellcheck / Typo Correction
-setopt correctall
-alias git status='nocorrect git status'
+#setopt correctall
+#alias git status='nocorrect git status'
 
 #################
 #PACKAGES
@@ -105,3 +105,9 @@ ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=063
 ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=009
 ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=009
 ZSH_HIGHLIGHT_STYLES[assign]=none
+
+## Golang Workspace
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
