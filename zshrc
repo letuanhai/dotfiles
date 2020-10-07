@@ -1,26 +1,17 @@
-###### WSL settings #####
-#
-## WSL X server setting
-#export DISPLAY=:0
-#
-## Connect to Docker daemon
-#export DOCKER_HOST=tcp://localhost:2375
-#
-########################
-
 # Enabling Color Prompts
 autoload colors zsh/terminfo
 colors
+
+# ALIASES
+if [ -f ~/.aliases ]; then
+    source ~/.aliases
+fi
 
 # Autostart Tmux
 #if [ "$TMUX" = "" ]; then tmux; fi
 
 # Auto CD
 setopt auto_cd
-
-# Spellcheck / Typo Correction
-#setopt correctall
-#alias git status='nocorrect git status'
 
 #################
 #PACKAGES
@@ -43,7 +34,8 @@ antigen bundle zsh-users/zsh-autosuggestions
 
 antigen bundle git
 antigen bundle command-not-found
-antigen bundle rupa/z
+#antigen bundle rupa/z
+antigen bundle clvv/fasd
 
 # Theme
 #antigen theme denysdovhan/spaceship-prompt
@@ -51,15 +43,6 @@ antigen theme robbyrussell
 
 # Tell Antigen that you're done.
 antigen apply
-
-#################
-# Aliases
-#################
-alias v='nvim'
-alias sf='source ~/.zshrc'
-alias gs='git status'
-alias gcm='git commit'
-alias gck='git checkout'
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -106,8 +89,10 @@ ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=009
 ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=009
 ZSH_HIGHLIGHT_STYLES[assign]=none
 
-## Golang Workspace
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-export PATH="/usr/local/opt/icu4c/bin:$PATH"
-export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Environment setup
+if [ -f ~/.env ]; then
+    source ~/.env
+fi

@@ -20,8 +20,8 @@ ln -s "${BREW_PREFIX}/bin/gsha256sum" "${BREW_PREFIX}/bin/sha256sum"
 brew install moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
 brew install findutils
-# Install GNU `sed`, overwriting the built-in `sed`.
-brew install gnu-sed --with-default-names
+# Install GNU `sed`
+brew install gnu-sed
 # Install a modern version of Bash.
 brew install bash
 brew install bash-completion2
@@ -32,14 +32,14 @@ brew install bash-completion2
 #  chsh -s "${BREW_PREFIX}/bin/bash";
 #fi;
 
-# Install `wget` with IRI support.
-brew install wget --with-iri
+# Install `wget`
+brew install wget
 
 # Install GnuPG to enable PGP-signing commits.
 brew install gnupg
 
 # Install more recent versions of some macOS tools.
-brew install vim --with-override-system-vi
+brew install vim
 brew install grep
 brew install openssh
 brew install screen
@@ -47,10 +47,10 @@ brew install php
 brew install gmp
 
 # Install font tools.
-brew tap bramstein/webfonttools
-brew install sfnt2woff
-brew install sfnt2woff-zopfli
-brew install woff2
+#brew tap bramstein/webfonttools
+#brew install sfnt2woff
+#brew install sfnt2woff-zopfli
+#brew install woff2
 
 # Install some CTF tools; see https://github.com/ctfs/write-ups.
 #brew install aircrack-ng
@@ -96,6 +96,14 @@ brew install ssh-copy-id
 brew install tree
 brew install vbindiff
 brew install zopfli
+
+# Install terminal environment tools
+brew cask install alacritty font-fira-code
+brew install tmux neovim reattach-to-user-namespace fasd fzf diff-so-fancy
+$(brew --prefix)/opt/fzf/install
+
+# Install Pyenv to manage Python version
+brew install pyenv
 
 # Remove outdated versions from the cellar.
 brew cleanup
