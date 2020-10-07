@@ -9,6 +9,7 @@
 rm -rf ~/.alacritty.yml ~/.tmux ~/.tmux.conf 2> /dev/null
 rm -rf ~/.vim ~/.vimrc ~/.config/nvim 2> /dev/null
 rm -rf ~/.zshrc ~/.aliases ~/.env 2> /dev/null
+rm -rf ~/.bash_profile ~/.bashrc 2> /dev/null
 
 
 # make necessary directory
@@ -21,7 +22,8 @@ ln -s ~/dotfiles/vimrc ~/.config/nvim/init.vim
 ln -s ~/dotfiles/zshrc ~/.zshrc
 ln -s ~/dotfiles/envfile ~/.env
 ln -s ~/dotfiles/aliases ~/.aliases
-
+ln -s ~/dotfiles/bash_profile ~/.bash_profile
+ln -s ~/dotfiles/bashrc ~/.bashrc
 
 
 #######################

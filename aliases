@@ -13,6 +13,7 @@ alias crontab="VIM_CRONTAB=true crontab"
 alias_if_exists 'diff' 'colordiff'
 #alias_if_exists 'ag' 'rg'
 alias_if_exists 'vim' 'nvim'
+alias_if_exists 'v' 'nvim'
 #alias_if_exists 'fdupes' 'jdupes'
 
 
@@ -52,9 +53,9 @@ alias jn="jupyter notebook"
 alias jn-b="jupyter notebook --no-browser"
 
 # Yotube-DL
-alias yt="youtube-dl"
-alias yta="youtube-dl --extract-audio --audio-format mp3"
-alias ytad="youtube-dl --extract-audio --audio-format mp3 --write-description --add-metadata"
+alias_if_exists yt="youtube-dl"
+alias_if_exists yta="youtube-dl --extract-audio --audio-format mp3"
+alias_if_exists ytad="youtube-dl --extract-audio --audio-format mp3 --write-description --add-metadata"
 
 ## Misc
 alias my-ip="curl ipinfo.io/ip 2> /dev/null"
@@ -185,7 +186,7 @@ function auto() {
 
 
  # Comment below if not fzf and fasd
- unalias z
+ #unalias z
  # fasd & fzf change directory - jump using `fasd` if given argument, filter output of `fasd` using `fzf` else'
  z() {
    [ $# -gt 0 ] && fasd_cd -d "$*" && return
