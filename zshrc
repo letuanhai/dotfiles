@@ -1,3 +1,5 @@
+#zmodload zsh/zprof # top of your .zshrc file
+
 # Enabling Color Prompts
 autoload colors zsh/terminfo
 colors
@@ -13,24 +15,25 @@ fi
 # Auto CD
 setopt auto_cd
 
-#################
+#============================================================================
 #PACKAGES
-#################
+#============================================================================
 
 # Package manager
-if [[ ! -f ~/.antigen.zsh ]]; then
-  curl -L git.io/antigen > ~/.antigen.zsh
+if [[ ! -f ~/antigen.zsh ]]; then
+  curl -L git.io/antigen > ~/antigen.zsh
 fi
-source ~/.antigen.zsh
+source ~/antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
 # Syntax Highlighting
-antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-syntax-highlighting            # should be sourced at the end .zshrc
 
 # Autocomplete
 antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-completions
 
 antigen bundle git
 antigen bundle command-not-found
@@ -51,17 +54,16 @@ if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
     if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/opt/miniconda3/etc/profile.d/conda.sh"
-    else
+        . "/opt/miniconda3/etc/profile.d/conda.sh" else
         export PATH="/opt/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-#################
+#============================================================================
 # Syntax highlighting color
-#################
+#============================================================================
 #
 # Enable highlighters
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
@@ -90,9 +92,49 @@ ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=009
 ZSH_HIGHLIGHT_STYLES[assign]=none
 
 # fzf
+#============================================================================
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# vi mode with status indicator
+#============================================================================
+# https://gist.github.com/chrismccord/6723644
+# http://pawelgoscicki.com/archives/2012/09/vi-mode-indicator-in-zsh-prompt/
+#bindkey -v
+#
+#vim_ins_mode="%{$fg[cyan]%}[INS]%{$reset_color%}"      # Insert mode status
+#vim_cmd_mode="%{$fg[red]%}[CMD]%{$reset_color%}"       # Command mode status
+#vim_mode=$vim_ins_mode
+#
+#function zle-keymap-select {
+#  vim_mode="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
+#  zle reset-prompt
+#}
+#zle -N zle-keymap-select
+#
+#function zle-line-finish {
+#  vim_mode=$vim_ins_mode
+#}
+#zle -N zle-line-finish
+#
+## Fix a bug when you C-c in CMD mode and you'd be prompted with CMD mode indicator, while in fact you would be in INS mode
+## Fixed by catching SIGINT (C-c), set vim_mode to INS and then repropagate the SIGINT, so if anything else depends on it, we will not break it
+#function TRAPINT() {
+#  vim_mode=$vim_ins_mode
+#  return $(( 128 + $1 ))
+#}
+#
+#RPROMPT='${vim_mode}'
+#RPROMPT2='${vim_mode}'
+#setopt transient_rprompt # don't show command modes on previously accepted lines
+
+# Key binding
+#============================================================================
+bindkey '^ ' forward-word
+
 # Environment setup
+#============================================================================
 if [ -f ~/.env ]; then
     source ~/.env
 fi
+
+#zprof # bottom of .zshrc

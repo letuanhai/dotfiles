@@ -9,8 +9,8 @@ call plug#begin('~/.vim/plugged')
 
 " Load plugins
 " Per file editor config
-Plug 'ciaranm/securemodelines'
-Plug 'editorconfig/editorconfig-vim'
+"Plug 'ciaranm/securemodelines'
+"Plug 'editorconfig/editorconfig-vim'
 
 " Search
 "Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
@@ -114,10 +114,16 @@ call plug#end()
 " Plugin settings
 " =============================================================================
 
+" META: Disabled by default
+let g:gitgutter_enabled = 0          " vim-gitgutter
+let g:indentLine_enabled = 0         " indentline
+let g:SignatureEnabledAtStartup = 0  " vim-signature
+let g:startify_custom_header =[]     " Disable startify header
+" Enabled by default
+let g:rainbow_active = 1
 
 " Yggdroot/indentLine
 " -------------------------------
-let g:indentLine_enabled = 1
 let g:indentLine_char = "⟩"
 " -------------------------------
 
@@ -374,10 +380,10 @@ map <Leader>? <Plug>(incsearch-easymotion-?)
 map <Leader>g/ <Plug>(incsearch-easymotion-stay)
 
 " `  `v  `z  rv  -- edit vimrc/zshrc and load vimrc bindings
-"nnoremap <Leader>` :Startify<CR>
+nnoremap <Leader>` :Startify<CR>
 nnoremap <Leader>`z :vsp ~/.zshrc<CR>
-nnoremap <Leader>`v :vsp ~/.vimrc<CR>
-nnoremap <Leader>rv :source ~/.vimrc<CR>
+nnoremap <Leader>`v :vsp ~/.config/init.vim<CR>
+nnoremap <Leader>rv :source ~/.config/init.vim<CR>
 
 " FN
 """""""""""""""""""""""""""""""""""""""""""""""""""""""

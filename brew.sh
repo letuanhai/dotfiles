@@ -96,6 +96,8 @@ brew install ssh-copy-id
 brew install tree
 brew install vbindiff
 brew install zopfli
+brew install rg
+brew install jq
 
 # Install terminal environment tools
 brew cask install alacritty font-fira-code
