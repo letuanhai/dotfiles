@@ -382,8 +382,8 @@ map <Leader>g/ <Plug>(incsearch-easymotion-stay)
 " `  `v  `z  rv  -- edit vimrc/zshrc and load vimrc bindings
 nnoremap <Leader>` :Startify<CR>
 nnoremap <Leader>`z :vsp ~/.zshrc<CR>
-nnoremap <Leader>`v :vsp ~/.config/init.vim<CR>
-nnoremap <Leader>rv :source ~/.config/init.vim<CR>
+nnoremap <Leader>`v :vsp ~/.config/nvim/init.vim<CR>
+nnoremap <Leader>rv :source ~/.config/nvim/init.vim<CR>
 
 " FN
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -406,6 +406,10 @@ noremap X "_x
 " =============================================================================
 "   LOCAL CONFIG
 " =============================================================================
+
+" Setup complier environment
+let g:python3_host_prog = '~/.neovim/py3/bin/python'
+let g:node_host_prog = '~/.neovim/node/bin/neovim-node-host'
 
 " local customizations in ~/.vimrc_local
 let $LOCALFILE=expand("~/.vimrc_local")

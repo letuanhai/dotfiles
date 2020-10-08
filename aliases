@@ -35,8 +35,8 @@ mvr () {
 ## Git
 alias ga='git add'
 alias gs='git status'
-alias gcm='git commit'
-alias gck='git checkout'
+#alias gcm='git commit'
+#alias gck='git checkout'
 alias gu='git pull'
 alias gg='git graph'
 # unalias gd
