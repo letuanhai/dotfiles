@@ -15,7 +15,7 @@ call plug#begin('~/.vim/plugged')
 " Search
 "Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
 "Plug 'romainl/vim-cool'               " Disables highlight when search is done
-"Plug 'haya14busa/incsearch.vim'       " Better incremental search
+Plug 'haya14busa/incsearch.vim'       " Better incremental search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }  " FZF plugin, makes Ctrl-P unnecessary
 Plug 'junegunn/fzf.vim'
 
@@ -233,8 +233,8 @@ set hlsearch            " highlight matches
 set ignorecase          " Ignore case in searches by default
 set smartcase           " But make it case sensitive if an uppercase is entered
 " turn off search highlight
-vnoremap <C-h> :nohlsearch<cr>
-nnoremap <C-h> :nohlsearch<cr>
+"vnoremap <C-h> :nohlsearch<cr>
+"nnoremap <C-h> :nohlsearch<cr>
 " Ignore files for completion
 set wildignore+=*/.git/*,*/tmp/*,*.swp
 
@@ -317,8 +317,8 @@ endif
 " Modifiers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <C-g> :Goyo<CR>
-map <C-p> :Files<CR>
-map <C-h> :History<CR>
+"map <C-p> :Files<CR>
+"map <C-h> :History<CR>
 
 " Leader
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -354,6 +354,22 @@ nmap <Leader>p "+p
 nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
+
+"  oa oc oe ofog om on op ot os    --  Miscellaneous toggles
+nnoremap <Leader>oa :ALEToggle<CR>
+nnoremap <Leader>ob :ToggleBlameLine<CR>
+nnoremap <Leader>oc :ColorToggle<CR>
+nnoremap <Leader>oe :NERDTreeToggle<CR>
+nnoremap <Leader>of :ALEfixToggle<CR>
+"nnoremap <Leader>oj :call TogglePrettyJson()<CR>
+nnoremap <Leader>og :GitGutterToggle<CR>
+"nnoremap <Leader>ol :ColorColumnToggle<CR>
+nnoremap <Leader>om :SignatureToggle<CR>
+"nnoremap <Leader>on :LineNumberToggle<CR>
+nnoremap <Leader>op :RainbowToggle<CR>
+nnoremap <Leader>ot :Vista!!<CR>
+nnoremap <Leader>os :setlocal spell! spelllang=en_us<CR>
+" nnoremap <Leader>nf :NERDTreeFind<CR>
 
 "  e g H -- FZF
 nnoremap <Leader>g :Rg<CR>
