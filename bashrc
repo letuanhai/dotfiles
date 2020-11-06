@@ -12,11 +12,5 @@ if [ -f ~/.aliases ]; then
     source ~/.aliases
 fi
 
-# Tmuxinator completions
-#if [ -f ~/.bin/tmuxinator.bash ]; then
-#    source ~/.bin/tmuxinator.bash
-#fi
-
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 #HISTIGNORE="$HISTIGNORE:jrnl *"
