@@ -1,0 +1,9 @@
+[submodule "dotfiles-ref1"]
+	path = dotfiles-ref1
+	url = git@github.com:letuanhai/dotfiles-ref1.git
+	ignore = dirty
+[submodule "dotbot"]
+	ignore = dirty
+[submodule "dotfiles-ref2"]
+	path = dotfiles-ref2
+	url = git@github.com:letuanhai/dotfiles-ref2.git

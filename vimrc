@@ -29,13 +29,14 @@ Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'tpope/vim-sensible'             " Some better defaults
 Plug 'tpope/vim-unimpaired'           " Pairs of mappings
 Plug 'tpope/vim-surround'             " Surround with parentheses & co
-Plug 'joom/vim-commentary'            " To comment stuff out
+Plug 'tpope/vim-commentary'            " To comment stuff out
 Plug 'terryma/vim-multiple-cursors'   " Multiple cursors like sublime
 Plug 'godlygeek/tabular'              " For alignment
 Plug 'junegunn/vim-easy-align'        " Easier alignment
 Plug 'foosoft/vim-argwrap'            " convert lists of arguments into blocks of arguments
 Plug 'tpope/vim-repeat'               " Adds repeat thorugh . to other packages
 Plug 'tpope/vim-speeddating'          " Dates in vim
+" Plug 'preservim/nerdcommenter'        " Comment functionality
 
 " GUI enhancements
 "Plug 'itchyny/lightline.vim'          " Better Status Bar

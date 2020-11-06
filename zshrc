@@ -19,33 +19,33 @@ setopt auto_cd
 #PACKAGES
 #============================================================================
 
-# Package manager
-if [[ ! -f ~/antigen.zsh ]]; then
-  curl -L git.io/antigen > ~/antigen.zsh
-fi
-source ~/antigen.zsh
+## Package manager
+#if [[ ! -f ~/antigen.zsh ]]; then
+#  curl -L git.io/antigen > ~/antigen.zsh
+#fi
+#source ~/antigen.zsh
 
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+## Load the oh-my-zsh's library.
+#antigen use oh-my-zsh
 
-# Syntax Highlighting
-antigen bundle zsh-users/zsh-syntax-highlighting            # should be sourced at the end .zshrc
+## Syntax Highlighting
+#antigen bundle zsh-users/zsh-syntax-highlighting            # should be sourced at the end .zshrc
 
-# Autocomplete
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-completions
+## Autocomplete
+#antigen bundle zsh-users/zsh-autosuggestions
+#antigen bundle zsh-users/zsh-completions
 
-antigen bundle git
-antigen bundle command-not-found
-#antigen bundle rupa/z
-antigen bundle clvv/fasd
+#antigen bundle git
+#antigen bundle command-not-found
+##antigen bundle rupa/z
+#antigen bundle clvv/fasd
 
-# Theme
-#antigen theme denysdovhan/spaceship-prompt
-antigen theme robbyrussell
+## Theme
+##antigen theme denysdovhan/spaceship-prompt
+#antigen theme robbyrussell
 
-# Tell Antigen that you're done.
-antigen apply
+## Tell Antigen that you're done.
+#antigen apply
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -136,5 +136,3 @@ bindkey '^ ' forward-word
 if [ -f ~/.env ]; then
     source ~/.env
 fi
-
-#zprof # bottom of .zshrc
