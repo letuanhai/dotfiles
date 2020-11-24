@@ -9,17 +9,17 @@ call plug#begin('~/.vim/plugged')
 ""Plug 'editorconfig/editorconfig-vim'
 "
 " Search
-""Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
+Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
 ""Plug 'romainl/vim-cool'               " Disables highlight when search is done
 "Plug 'haya14busa/incsearch.vim'       " Better incremental search
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }  " FZF plugin, makes Ctrl-P unnecessary
 "Plug 'junegunn/fzf.vim'
 
 " Movement
-"Plug 'justinmk/vim-sneak'
-"Plug 'easymotion/vim-easymotion'
-"Plug 'haya14busa/incsearch-easymotion.vim'
-""Plug 'wikitopian/hardmode'            " Disable arrow keys and similar
+" Plug 'justinmk/vim-sneak'
+" Plug 'easymotion/vim-easymotion'
+" Plug 'haya14busa/incsearch-easymotion.vim'
+"Plug 'wikitopian/hardmode'            " Disable arrow keys and similar
 
 " Text Manipulation
 "Plug 'tpope/vim-sensible'             " Some better defaults
@@ -27,7 +27,7 @@ call plug#begin('~/.vim/plugged')
 "Plug 'tpope/vim-surround'             " Surround with parentheses & co
 Plug 'tpope/vim-commentary'            " To comment stuff out
 "Plug 'terryma/vim-multiple-cursors'   " Multiple cursors like sublime
-"Plug 'godlygeek/tabular'              " For alignment
+Plug 'godlygeek/tabular'              " For alignment
 "Plug 'junegunn/vim-easy-align'        " Easier alignment
 "Plug 'foosoft/vim-argwrap'            " convert lists of arguments into blocks of arguments
 "Plug 'tpope/vim-repeat'               " Adds repeat thorugh . to other packages
@@ -35,40 +35,40 @@ Plug 'tpope/vim-commentary'            " To comment stuff out
 " Plug 'preservim/nerdcommenter'        " Comment functionality
 
 " GUI enhancements
-"Plug 'itchyny/lightline.vim'          " Better Status Bar
-"Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'          " Better Status Bar
+" Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
 "Plug 'mhinz/vim-startify'             " Better start screen
-Plug 'scrooloose/nerdtree'            " File explorer
+" Plug 'scrooloose/nerdtree'            " File explorer
 
 "Plug 'sjl/gundo.vim'                  " Undo Tree
 "Plug 'simnalamburt/vim-mundo'         " Gundo fork
 "Plug 'majutsushi/tagbar'              " Pane with tags
-"Plug 'machakann/vim-highlightedyank'  " Highlight yanks
-"Plug 'andymass/vim-matchup'           " Highlight corresponding blocks e.g. if - fi in bash
-"Plug 'kshenoy/vim-signature'          " Show marks in the gutter
-"Plug 'yggdroot/indentline'            " Shows indentation levels
+Plug 'machakann/vim-highlightedyank'  " Highlight yanks
+Plug 'andymass/vim-matchup'           " Highlight corresponding blocks e.g. if - fi in bash
+Plug 'kshenoy/vim-signature'          " Show marks in the gutter
+Plug 'yggdroot/indentline'            " Shows indentation levels
 "Plug 'tpope/vim-eunuch'               " Unix helpers
 " Git GUI
-"Plug 'airblade/vim-gitgutter'         " Git gutter
+Plug 'airblade/vim-gitgutter'         " Git gutter
 "Plug 'tpope/vim-fugitive'             " Git interface
-"Plug 'xuyuanp/nerdtree-git-plugin'    " Show status of files in NerdTree
+Plug 'xuyuanp/nerdtree-git-plugin'    " Show status of files in NerdTree
 "Plug 'tveskag/nvim-blame-line'        " Add git blame on line
 
 " Tmux GUI
 "Plug 'tmux-plugins/vim-tmux-focus-events'
 "Plug 'roxma/vim-tmux-clipboard'
-"Plug 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Autocomplete
 " Plug 'ervandew/supertab'
 " Semantic language support
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Syntactic language support
 " Plug 'nvim-treesitter/nvim-treesitter' " LSP syntax highlighting - (Note:
 " needs neovim >= 0.5)
-"Plug 'w0rp/ale'                        " Linting engine
+Plug 'dense-analysis/ale'                        " Linting engine
 ""Plug 'maximbaz/lightline-ale'          " Lightline + Ale
 "Plug 'plasticboy/vim-markdown'         " Markdown support
 "Plug 'mzlogin/vim-markdown-toc'        " Markdown TOC builder
@@ -103,7 +103,7 @@ Plug 'cocopon/iceberg.vim'
 "Plug 'ron89/thesaurus_query.vim'       " Synonym query
 
 " Other
-"Plug 'liuchengxu/vim-which-key'
+Plug 'liuchengxu/vim-which-key'
 
 call plug#end()
 
@@ -112,29 +112,29 @@ call plug#end()
 " Plugin settings
 " =============================================================================
 "
-"" META: Disabled by default
-"let g:gitgutter_enabled = 0          " vim-gitgutter
-"let g:indentLine_enabled = 0         " indentline
-"let g:SignatureEnabledAtStartup = 0  " vim-signature
+" META: Disabled by default
+let g:gitgutter_enabled = 0          " vim-gitgutter
+let g:indentLine_enabled = 0         " indentline
+let g:SignatureEnabledAtStartup = 0  " vim-signature
 "let g:startify_custom_header =[]     " Disable startify header
 "" Enabled by default
 "let g:rainbow_active = 1
 "
-"" Yggdroot/indentLine
-"" -------------------------------
-"let g:indentLine_char = "⟩"
-"" -------------------------------
+" Yggdroot/indentLine
+" -------------------------------
+let g:indentLine_char = "⟩"
+" -------------------------------
 "
-"" vim-airline/vim-airline
-"" -------------------------------
+" vim-airline/vim-airline
+" -------------------------------
 "let g:airline_theme='minimalist'
 "let g:airline#extensions#tabline#enabled=1
 "let g:airline_powerline_fonts=1
 "set laststatus=2
-"" -------------------------------
-"
-"" justinmk/vim-sneak
-"" -------------------------------
+" -------------------------------
+
+" justinmk/vim-sneak
+" -------------------------------
 "let g:sneak#s_next = 1
 "nmap f <Plug>Sneak_f
 "nmap F <Plug>Sneak_F
@@ -142,37 +142,37 @@ call plug#end()
 "xmap F <Plug>Sneak_F
 "omap f <Plug>Sneak_f
 "omap F <Plug>Sneak_F
-"" -------------------------------
-"
-"" ALE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:ale_enabled = 1
-"" For quick startup
-"let g:ale_lint_on_enter = 0
-"let g:ale_lint_on_save = 1
-"
-"" Easymotion
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Use uppercase target labels and type as a lower case
+" -------------------------------
+
+" ALE
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ale_enabled = 1
+" For quick startup
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 1
+
+" Easymotion
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use uppercase target labels and type as a lower case
 "let g:EasyMotion_use_upper = 1
 "let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
 "" Turn on case-insensitive feature
 "let g:EasyMotion_smartcase = 1
 "map <Leader> <Plug>(easymotion-prefix)
-"
-"" vim-easy-align
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Start interactive EasyAlign in visual mode (e.g. vipga)
-"xmap ga <Plug>(EasyAlign)
-"
-"" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-"nmap ga <Plug>(EasyAlign)
-"
-"" fzf
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"set rtp+=/usr/local/opt/fzf
-"
+
+" vim-easy-align
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+" xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+" nmap ga <Plug>(EasyAlign)
+
+" fzf
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" set rtp+=/usr/local/opt/fzf
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set nocompatible " Vi compatible mode is disabled so that Vim things work
 
@@ -184,7 +184,7 @@ set nocompatible " Vi compatible mode is disabled so that Vim things work
 set termguicolors
 set background=light
 colorscheme iceberg
-" let g:python_highlight_all = 1
+let g:python_highlight_all = 1
 syntax on           " enable syntax processing
 
 " Spaces & Tabs
@@ -260,8 +260,8 @@ set foldmethod=indent   " fold based on indent level
 " Movement
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " move vertically by visual line
-" nnoremap j gj
-" nnoremap k gk
+nnoremap j gj
+nnoremap k gk
 " highlight last inserted text
 nnoremap gV `[v`]
 
@@ -318,7 +318,7 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " <Nothing> -- vim-which-key
-" nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
 " , -- Clear search highlights
 map <Leader>, :let @/=''<CR>
@@ -350,20 +350,20 @@ vmap <Leader>p "+p
 vmap <Leader>P "+P
 
 "  oa oc oe ofog om on op ot os    --  Miscellaneous toggles
-"nnoremap <Leader>oa :ALEToggle<CR>
+nnoremap <Leader>oa :ALEToggle<CR>
 "nnoremap <Leader>ob :ToggleBlameLine<CR>
-"nnoremap <Leader>oc :ColorToggle<CR>
-"nnoremap <Leader>oe :NERDTreeToggle<CR>
-"nnoremap <Leader>of :ALEfixToggle<CR>
+" nnoremap <Leader>oc :ColorToggle<CR>
+nnoremap <Leader>oe :NERDTreeToggle<CR>
+nnoremap <Leader>of :ALEfixToggle<CR>
 ""nnoremap <Leader>oj :call TogglePrettyJson()<CR>
-"nnoremap <Leader>og :GitGutterToggle<CR>
+nnoremap <Leader>og :GitGutterToggle<CR>
 ""nnoremap <Leader>ol :ColorColumnToggle<CR>
-"nnoremap <Leader>om :SignatureToggle<CR>
-""nnoremap <Leader>on :LineNumberToggle<CR>
+nnoremap <Leader>om :SignatureToggle<CR>
+" nnoremap <Leader>on :LineNumberToggle<CR>
 "nnoremap <Leader>op :RainbowToggle<CR>
 "nnoremap <Leader>ot :Vista!!<CR>
-"nnoremap <Leader>os :setlocal spell! spelllang=en_us<CR>
-"" nnoremap <Leader>nf :NERDTreeFind<CR>
+nnoremap <Leader>os :setlocal spell! spelllang=en_us<CR>
+nnoremap <Leader>nf :NERDTreeFind<CR>
 
 "  e g H -- FZF
 " nnoremap <Leader>g :Rg<CR>
@@ -391,8 +391,8 @@ vmap <Leader>P "+P
 
 " `  `v  `z  rv  -- edit vimrc/zshrc and load vimrc bindings
 " nnoremap <Leader>` :Startify<CR>
-" nnoremap <Leader>`z :vsp ~/.zshrc<CR>
-" nnoremap <Leader>`v :vsp ~/.config/nvim/init.vim<CR>
+nnoremap <Leader>`z :vsp ~/.zshrc<CR>
+nnoremap <Leader>`v :vsp ~/.config/nvim/init.vim<CR>
 nnoremap <Leader>rv :source ~/.config/nvim/init.vim<CR>
 
 " FN
