@@ -18,6 +18,10 @@ BREW_PREFIX=$(brew --prefix)
 brew install coreutils
 ln -s "${BREW_PREFIX}/bin/gsha256sum" "${BREW_PREFIX}/bin/sha256sum"
 
+# Use Brew-managed Python3 and Node
+brew install python3
+brew install node
+
 # Install some other useful utilities like `sponge`.
 brew install moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
@@ -54,7 +58,7 @@ brew install ack
 brew install git
 brew install git-lfs
 brew install gs
-brew install imagemagick --with-webp
+brew install imagemagick
 brew install lua
 brew install lynx
 brew install p7zip
