@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 # Install command-line tools using Homebrew.
+# Get cask-fonts
+brew tap homebrew/cask-fonts
 
 # Make sure we’re using the latest Homebrew.
 brew update
@@ -105,7 +107,7 @@ brew install tmux neovim reattach-to-user-namespace fasd fzf diff-so-fancy
 $(brew --prefix)/opt/fzf/install
 
 # Install Pyenv to manage Python version
-brew install pyenv
+#brew install pyenv
 
 # Remove outdated versions from the cellar.
 brew cleanup
