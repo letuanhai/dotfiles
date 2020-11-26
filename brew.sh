@@ -69,8 +69,42 @@ brew install zopfli
 brew install rg
 brew install jq
 
+# Install casks
+brew cask install alacritty
+brew cask install anki
+brew cask install atext
+brew cask install authy
+brew cask install brave-browser
+brew cask install coconutbattery
+brew cask install docker
+brew cask install font-fira-code
+brew cask install google-chrome
+brew cask install hammerspoon
+brew cask install itsycal
+brew cask install keka
+brew cask install keycastr
+brew cask install launchbar
+brew cask install meld
+brew cask install michaelvillar-timer
+brew cask install middleclick
+brew cask install miniconda
+brew cask install noti
+brew cask install numi
+brew cask install obsidian
+brew cask install openkey
+brew cask install qlcolorcode
+brew cask install qlmarkdown
+brew cask install qlstephen
+brew cask install quicklook-json
+brew cask install rectangle
+brew cask install spotify
+brew cask install suspicious-package
+brew cask install textmate
+brew cask install visual-studio-code
+brew cask install wireshark
+brew cask install zotero
+
 # Install terminal environment tools
-brew cask install alacritty font-fira-code
 brew install tmux neovim reattach-to-user-namespace fasd fzf diff-so-fancy
 $(brew --prefix)/opt/fzf/install
 brew install antigen
@@ -80,3 +114,4 @@ brew install antigen
 
 # Remove outdated versions from the cellar.
 brew cleanup
+
