@@ -2,6 +2,20 @@
 autoload colors zsh/terminfo
 colors
 
+# History size
+#set history size
+export HISTSIZE=10000
+#save history after logout
+export SAVEHIST=10000
+#history file
+export HISTFILE=~/.zhistory
+#append into history file
+setopt INC_APPEND_HISTORY
+#save only one command if 2 common are same and consistent
+setopt HIST_IGNORE_DUPS
+#add timestamp for each entry
+setopt EXTENDED_HISTORY
+
 # ALIASES
 if [ -f ~/.aliases ]; then
     source ~/.aliases
@@ -17,11 +31,12 @@ setopt auto_cd
 #PACKAGES
 #============================================================================
 
-## Package manager
-if [[ ! -f ~/.antigen.zsh ]]; then
-  curl -L git.io/antigen > ~/.antigen.zsh
-fi
-source ~/.antigen.zsh
+# ## Package manager
+# if [[ ! -f ~/antigen.zsh ]]; then
+#   curl -L git.io/antigen > ~/antigen.zsh
+# fi
+# source ~/antigen.zsh
+source /usr/local/share/antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -34,6 +49,8 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 
 antigen bundle git
+antigen bundle docker
+antigen bundle docker-compose
 antigen bundle command-not-found
 # antigen bundle rupa/z
 # antigen bundle clvv/fasd
@@ -47,13 +64,14 @@ antigen apply
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/usr/local/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/opt/miniconda3/etc/profile.d/conda.sh" else
-        export PATH="/opt/miniconda3/bin:$PATH"
+    if [ -f "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+        . "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+    else
+        export PATH="/usr/local/Caskroom/miniconda/base/bin:$PATH"
     fi
 fi
 unset __conda_setup
