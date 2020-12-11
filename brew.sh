@@ -81,7 +81,7 @@ brew cask install authy
 brew cask install brave-browser
 brew cask install coconutbattery
 brew cask install docker
-brew cask install font-fira-code
+brew cask install font-fira-code-nerd-font
 brew cask install google-chrome
 brew cask install hammerspoon
 brew cask install itsycal
