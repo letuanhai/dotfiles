@@ -10,8 +10,14 @@ function alias_if_exists() {
 # Better defaults
 alias crontab="VIM_CRONTAB=true crontab"
 alias_if_exists 'diff' 'colordiff'
-alias_if_exists 'vim' 'nvim'
 alias_if_exists 'v' 'nvim'
+alias_if_exists 'g' 'git'
+alias_if_exists 'c' 'clear'
+alias l.='ls -d .* --color=auto'
+alias mount='mount |column -t'
+alias h='history'
+alias j='jobs -l'
+
 
 
 # Shortcuts
@@ -24,18 +30,15 @@ mvr () {
 ## Git
 alias ga='git add'
 alias gs='git status'
-#alias gcm='git commit'
-#alias gck='git checkout'
+alias gcm='git commit -v'
+alias gck='git checkout'
 alias gu='git pull'
 alias gg='git graph'
-# unalias gd
+unalias gd 2>/dev/null
 alias gd='git diff'
 alias gsu='git stash && git pull && git stash pop'
   # Note that gs is also ghostscript
 alias ghostscript="/usr/local/bin/gs"
-function gD(){
-    git diff $@ | ydiff
-}
 
 ## Jupyter
 alias jc="jupyter console"
@@ -47,11 +50,14 @@ alias jn-b="jupyter notebook --no-browser"
 alias my-ip="curl ipinfo.io/ip 2> /dev/null"
 alias spell='aspell check --dont-backup'
 alias grepc="grep -P --color=always" #Color grep
-
+alias now='date +"%T"'
+alias cdate='date +"%d-%m-%Y"'
 alias printpath='echo $PATH | sed "s/:/\\n/g"'
+alias path='echo -e ${PATH//:/\\n}'
 # Other
 alias sep='tput cols | python -c "import sys; print(\"=\"*int(sys.stdin.read().strip()))"'
 
+## Tmux
 alias tn='tmux new -s '
 alias ta='tmux a -t '
 alias td='tmux detach'
@@ -72,19 +78,28 @@ case "$(uname -s)" in
 
      alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome &"
 
-     alias readlink="greadlink"
-
      alias mvf='mv "$(pfs)"' # Move current finder selection
 
      # MacOS GNUs
-     for i in awk cat chgrp chmod chown chroot cut date df du echo egrep env false fgrep find grep join kill link ln logname make mkdir mknod mktemp nice nohup paste perf printf pwd readlink realpath rmdir sed sort split tac tailmtar tee test touch tr true truncate tty uniq unlink unzip uptime users who whoami yes zip; do
+     for i in awk cat chgrp chmod chown chroot cut date df du echo egrep env false fgrep find join kill link ln logname make mknod mktemp nice nohup paste perf printf pwd readlink realpath rmdir sed sort split tac tail tar tee test touch tr true truncate tty uniq unlink uptime users who whoami yes; do
+     alias readlink="greadlink"
        alias_if_exists "$i" "g$i"
      done
      alias_if_exists "id" "/usr/local/bin/gid"
      alias rm="/usr/local/bin/grm -I"
      alias mv="/usr/local/bin/gmv -i"
      alias cp="/usr/local/bin/gcp -i"
-     alias_if_exists "ls" "/usr/local/bin/gls"
+
+     unalias ls 2>/dev/null
+     alias ls="/usr/local/bin/gls --color=auto"
+     alias la="/usr/local/bin/gls -lA --color=auto"
+
+     unalias grep 2>/dev/null
+     alias grep="/usr/local/bin/ggrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}"
+
+     unalias mkdir 2>/dev/null
+     alias mkdir="/usr/local/bin/gmkdir -pv"
+
      ;;
 
    Linux)
