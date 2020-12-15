@@ -34,24 +34,24 @@ prepend_path "/usr/local/sbin"
 
 
 # set PYTHONPATH for local user packages
-# export PYTHONPATH="$HOME/python-libs:$PYTHONPATH"
+export PYTHONPATH="$HOME/python-libs:$PYTHONPATH"
 
 
-# if [ -d "$HOME/.pyenv" ]; then
-#     # Python from pyenv
-#     export PYENV_ROOT="$HOME/.pyenv"
+if [ -d "$HOME/.pyenv" ]; then
+    # Python from pyenv
+    export PYENV_ROOT="$HOME/.pyenv"
 
-#     if command -v pyenv > /dev/null; then
-#         eval "$(pyenv init -)";
-#     fi
-#     if command -v pyenv-virtualenv-init > /dev/null; then
-#         eval "$(pyenv virtualenv-init -)";
-#     fi
+    if command -v pyenv > /dev/null; then
+        eval "$(pyenv init -)";
+    fi
+    if command -v pyenv-virtualenv-init > /dev/null; then
+        eval "$(pyenv virtualenv-init -)";
+    fi
 
-#     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+    export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
-#     prepend_path "$PYENV_ROOT/bin"     # PYENV binaries from
-# fi
+    prepend_path "$PYENV_ROOT/bin"     # PYENV binaries from
+fi
 
 
 
@@ -60,8 +60,8 @@ prepend_path "/usr/local/sbin"
 # DEFAULT COLORS/PROGRAMS
 
 # CLI colors
-export CLICOLOR=1
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+# export CLICOLOR=1
+# export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # Configure Editor
 if command -v nvim > /dev/null; then
@@ -76,8 +76,8 @@ fi
 # Misc Software
 
 # Add GOPATH
-export GOPATH=$HOME/go
-export PATH=$PATH:"$GOPATH/bin"
+# export GOPATH=$HOME/go
+# export PATH=$PATH:"$GOPATH/bin"
 
 
 # Rust Path init
@@ -89,13 +89,13 @@ export PATH=$PATH:"$GOPATH/bin"
 # fi
 
 # Ansible
-export ANSIBLE_NOCOWS=1
+# export ANSIBLE_NOCOWS=1
 
 ###########################################################################################################################
 
 # OS specific
 # So bash is brew's and not OS's
-export PATH="/usr/local/bin:$PATH"
+# export PATH="/usr/local/bin:$PATH"
 
 #case "$(uname -s)" in
 #
