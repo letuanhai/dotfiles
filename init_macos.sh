@@ -8,18 +8,20 @@
 # remove existing configs
 rm -rf ~/.alacritty.yml ~/.tmux ~/.tmux.conf 2> /dev/null
 rm -rf ~/.vim ~/.vimrc ~/.config/nvim 2> /dev/null
-rm -rf ~/.zshrc ~/.aliases ~/.env 2> /dev/null
+rm -rf ~/.aliases ~/.env 2> /dev/null
 rm -rf ~/.bash_profile ~/.bashrc 2> /dev/null
+# rm -rf ~/.zshrc
 
 
 # make necessary directory
-mkdir -p ~/.config ~/.config/nvim ~/.config/fish ~/.config/fish/functions
+mkdir -p ~/.config ~/.config/nvim
+# mkdir -p ~/.config/fish ~/.config/fish/functions
 
 # linking configs
 ln -s ~/dotfiles/terminal/alacritty.yml ~/.alacritty.yml
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/vimrc ~/.config/nvim/init.vim
-ln -s ~/dotfiles/zshrc ~/.zshrc
+# ln -s ~/dotfiles/zshrc ~/.zshrc
 ln -s ~/dotfiles/envfile ~/.env
 ln -s ~/dotfiles/aliases ~/.aliases
 ln -s ~/dotfiles/bash_profile ~/.bash_profile
