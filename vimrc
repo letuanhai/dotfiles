@@ -9,11 +9,10 @@ call plug#begin('~/.vim/plugged')
 ""Plug 'editorconfig/editorconfig-vim'
 "
 " Search
-Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
 ""Plug 'romainl/vim-cool'               " Disables highlight when search is done
 "Plug 'haya14busa/incsearch.vim'       " Better incremental search
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }  " FZF plugin, makes Ctrl-P unnecessary
-"Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " Movement
 " Plug 'justinmk/vim-sneak'
@@ -63,13 +62,13 @@ Plug 'christoomey/vim-tmux-navigator'
 " Autocomplete
 " Plug 'ervandew/supertab'
 " Semantic language support
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dense-analysis/ale'                        " Linting engine
+Plug 'maximbaz/lightline-ale'          " Lightline + Ale
 
 " Syntactic language support
 " Plug 'nvim-treesitter/nvim-treesitter' " LSP syntax highlighting - (Note:
 " needs neovim >= 0.5)
-Plug 'dense-analysis/ale'                        " Linting engine
-""Plug 'maximbaz/lightline-ale'          " Lightline + Ale
 "Plug 'plasticboy/vim-markdown'         " Markdown support
 "Plug 'mzlogin/vim-markdown-toc'        " Markdown TOC builder
 "Plug 'cespare/vim-toml'                " TOML support
@@ -86,8 +85,7 @@ Plug 'dense-analysis/ale'                        " Linting engine
 "Plug 'vim-pandoc/vim-pandoc-syntax'    " Pandoc syntax
 "Plug 'chrisbra/colorizer'              " Colorize color codes
 "Plug 'vim-scripts/applescript.vim'
-" Plug 'norcalli/nvim-colorizer.lua'     " Faster colorzier (only neovim,
-" reconsider)
+Plug 'norcalli/nvim-colorizer.lua'     " Faster colorzier (only neovim, reconsider)
 "Plug 'liuchengxu/vista.vim'
 "Plug 'vim-python/python-syntax'
 " Plug 'sentientmachine/pretty-vim-python'
@@ -170,7 +168,7 @@ let g:ale_lint_on_save = 1
 
 " fzf
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" set rtp+=/usr/local/opt/fzf
+set rtp+=/usr/local/opt/fzf
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -189,10 +187,19 @@ syntax on           " enable syntax processing
 
 " Spaces & Tabs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set tabstop=4       " number of visual spaces per TAB
-set softtabstop=4   " number of spaces in tab when editing
-set shiftwidth=4    " Insert 4 spaces on a tab
-set expandtab       " tabs are spaces, mainly because of python
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
 
 " UI Config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -200,8 +207,8 @@ set number              " show line numbers
 set relativenumber      " show relative numbering
 set showcmd             " show command in bottom bar
 set cursorline          " highlight current line
-"filetype indent on      " load filetype-specific indent files
-"filetype plugin on      " load filetype specific plugin files
+filetype indent on      " load filetype-specific indent files
+filetype plugin on      " load filetype specific plugin files
 set wildmenu            " visual autocomplete for command menu
 set showmatch           " highlight matching [{()}]
 set laststatus=2        " Show the status line at the bottom
@@ -242,7 +249,7 @@ set wildignore+=*/.git/*,*/tmp/*,*.swp
 " Undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set undofile " Maintain undo history between sessions
-"set undodir=~/.vim/undodir
+set undodir=~/.vim/undodir
 
 
 " Folding
@@ -250,10 +257,9 @@ set undofile " Maintain undo history between sessions
 set foldenable          " enable folding
 set foldlevelstart=10   " open most folds by default
 set foldnestmax=10      " 10 nested fold max
-" space open/closes folds
-" nnoremap <space> za
+" Open/closes folds
+nnoremap , za
 set foldmethod=indent   " fold based on indent level
-" This is especially useful for me since I spend my days in Python.
 " Other acceptable values are marker, manual, expr, syntax, diff.
 " Run :help foldmethod to find out what each of those do.
 
@@ -324,7 +330,7 @@ nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 map <Leader>, :let @/=''<CR>
 
 "  ;  --   FZF
-" nmap <Leader>; :Buffers<CR>
+nmap <Leader>; :Buffers<CR>
 
 "  <Space>  --  <leader><leader> toggles between buffers
 nnoremap <Leader><Leader> <c-^>
@@ -351,24 +357,24 @@ vmap <Leader>P "+P
 
 "  oa oc oe ofog om on op ot os    --  Miscellaneous toggles
 nnoremap <Leader>oa :ALEToggle<CR>
-"nnoremap <Leader>ob :ToggleBlameLine<CR>
+" nnoremap <Leader>ob :ToggleBlameLine<CR>
 " nnoremap <Leader>oc :ColorToggle<CR>
 nnoremap <Leader>oe :NERDTreeToggle<CR>
 nnoremap <Leader>of :ALEfixToggle<CR>
-""nnoremap <Leader>oj :call TogglePrettyJson()<CR>
 nnoremap <Leader>og :GitGutterToggle<CR>
-""nnoremap <Leader>ol :ColorColumnToggle<CR>
+nnoremap <Leader>oi :IndentLinesToggl<CR>
+" nnoremap <Leader>ol :ColorColumnToggle<CR>
 nnoremap <Leader>om :SignatureToggle<CR>
 " nnoremap <Leader>on :LineNumberToggle<CR>
-"nnoremap <Leader>op :RainbowToggle<CR>
-"nnoremap <Leader>ot :Vista!!<CR>
+" nnoremap <Leader>op :RainbowToggle<CR>
+" nnoremap <Leader>ot :Vista!!<CR>
 nnoremap <Leader>os :setlocal spell! spelllang=en_us<CR>
 nnoremap <Leader>nf :NERDTreeFind<CR>
 
 "  e g H -- FZF
-" nnoremap <Leader>g :Rg<CR>
-" nnoremap <Leader>e :Files<CR>
-" nnoremap <Leader>H :History<CR>
+nnoremap <Leader>g :Rg<CR>
+nnoremap <Leader>e :Files<CR>
+nnoremap <Leader>H :History<CR>
 
 " hjkl  s j k t / ? g/   -- EasyMotion
 " map <Leader>h <Plug>(easymotion-linebackward)
