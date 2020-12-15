@@ -53,8 +53,9 @@ brew install php
 brew install gmp
 
 # Install other useful binaries.
-brew install ack
-#brew install exiv2
+# brew install ack
+brew install ag
+# brew install exiv2
 brew install git
 brew install git-lfs
 brew install gs
@@ -72,6 +73,7 @@ brew install vbindiff
 brew install zopfli
 brew install rg
 brew install jq
+brew install colordiff
 
 # Install casks
 brew cask install alacritty
@@ -103,18 +105,22 @@ brew cask install quicklook-json
 brew cask install rectangle
 brew cask install spotify
 brew cask install suspicious-package
-brew cask install textmate
+# brew cask install textmate
 brew cask install visual-studio-code
 brew cask install wireshark
 brew cask install zotero
 
 # Install terminal environment tools
-brew install tmux neovim reattach-to-user-namespace fasd fzf diff-so-fancy
-$(brew --prefix)/opt/fzf/install
-brew install antigen
+brew install tmux
+brew install neovim
+brew install reattach-to-user-namespace
+brew install fasd
+# brew install fzf
+brew install diff-so-fancy
+# brew install antigen
 
 # Install Pyenv to manage Python version
-#brew install pyenv
+brew install pyenv pyenv-virtualenv
 
 # Remove outdated versions from the cellar.
 brew cleanup
