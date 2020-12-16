@@ -112,7 +112,7 @@ call plug#end()
 "
 " META: Disabled by default
 let g:gitgutter_enabled = 0          " vim-gitgutter
-let g:indentLine_enabled = 0         " indentline
+" let g:indentLine_enabled = 0         " indentline
 let g:SignatureEnabledAtStartup = 0  " vim-signature
 "let g:startify_custom_header =[]     " Disable startify header
 "" Enabled by default
