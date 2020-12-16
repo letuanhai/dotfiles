@@ -84,9 +84,9 @@ fi
 #export PATH="$HOME/.cargo/bin:$PATH"
 
 # Fasd init
-# if command -v fasd > /dev/null; then
-#     eval "$(fasd --init auto)"
-# fi
+ if command -v fasd > /dev/null; then
+     eval "$(fasd --init auto)"
+ fi
 
 # Ansible
 # export ANSIBLE_NOCOWS=1
