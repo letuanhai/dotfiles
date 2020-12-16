@@ -71,7 +71,7 @@ brew install ssh-copy-id
 brew install tree
 brew install vbindiff
 brew install zopfli
-brew install rg
+brew install rg rga
 brew install jq
 brew install colordiff
 
