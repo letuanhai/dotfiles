@@ -115,7 +115,7 @@ brew install tmux
 brew install neovim
 brew install reattach-to-user-namespace
 brew install fasd
-# brew install fzf
+brew install fzf
 brew install diff-so-fancy
 # brew install antigen
 
