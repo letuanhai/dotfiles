@@ -10,7 +10,7 @@ function alias_if_exists() {
 # Better defaults
 alias crontab="VIM_CRONTAB=true crontab"
 alias_if_exists 'diff' 'colordiff'
-# alias_if_exists 'v' 'nvim'
+alias_if_exists 'nv' 'nvim'
 alias_if_exists 'g' 'git'
 alias_if_exists 'c' 'clear'
 alias l.='ls -d .* --color=auto'
