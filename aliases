@@ -56,11 +56,11 @@ alias printpath='echo $PATH | sed "s/:/\\n/g"'
 alias path='echo -e ${PATH//:/\\n}'
 # Other
 alias sep='tput cols | python -c "import sys; print(\"=\"*int(sys.stdin.read().strip()))"'
-alias rg='sep; rg '
+alias rg='sep; rg'
 
 ## Tmux
-alias tn='tmux new -s '
-alias ta='tmux a -t '
+alias tn='tmux new -s'
+alias ta='tmux a -t'
 alias td='tmux detach'
 
 ###########################################################################################################################
