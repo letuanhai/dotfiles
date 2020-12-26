@@ -81,7 +81,7 @@ fi
 
 
 # Rust Path init
-#export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Fasd init
  if command -v fasd > /dev/null; then
