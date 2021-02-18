@@ -187,13 +187,13 @@ syntax on           " enable syntax processing
 
 " Spaces & Tabs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-au Filetype python set tabstop=4
-    \ softtabstop=4
-    \ shiftwidth=4
-    \ textwidth=79
-    \ expandtab
-    \ autoindent
-    \ fileformat=unix
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set textwidth=120
+set expandtab
+set autoindent
+set fileformat=unix
 
 au BufNewFile,BufRead *.js, *.html, *.css set tabstop=2
     \ softtabstop=2
