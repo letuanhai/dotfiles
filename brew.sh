@@ -49,9 +49,9 @@ brew install gnupg
 brew install vim
 brew install grep
 brew install openssh
-brew install screen
-brew install php
-brew install gmp
+# brew install screen
+# brew install php
+# brew install gmp
 
 # Install other useful binaries.
 # brew install ack
@@ -59,10 +59,10 @@ brew install gmp
 # brew install exiv2
 brew install git
 brew install git-lfs
-brew install gs
+# brew install gs
 brew install imagemagick
-brew install lua
-brew install lynx
+# brew install lua
+# brew install lynx
 brew install p7zip
 brew install pigz
 brew install pv
@@ -80,56 +80,57 @@ brew install colordiff
 brew install tmux
 brew install neovim
 brew install reattach-to-user-namespace
-brew install fasd
-brew install fzf
+# brew install fasd
+# brew install fzf
 brew install diff-so-fancy
 # brew install antigen
 
 # Install Pyenv to manage Python version
 brew install pyenv pyenv-virtualenv
 
+# Install casks
+brew install --cask alacritty
+# brew install --cask anki
+brew install --cask atext
+brew install --cask authy
+brew install --cask brave-browser
+# brew install --cask coconutbattery
+brew install --cask docker
+brew install --cask font-fira-code-nerd-font
+brew install --cask google-chrome
+brew install --cask hammerspoon
+brew install --cask itsycal
+brew install --cask keka
+brew install --cask keycastr
+brew install --cask launchbar
+brew install --cask meld
+brew install --cask michaelvillar-timer
+brew install --cask middleclick
+brew install --cask miniconda
+# brew install --cask noti
+# brew install --cask numi
+brew install --cask obsidian
+brew install --cask openkey
+brew install --cask qlcolorcode
+brew install --cask qlmarkdown
+brew install --cask qlstephen
+brew install --cask quicklook-json
+brew install --cask rectangle
+brew install --cask spotify
+brew install --cask suspicious-package
+# brew install --cask textmate
+brew install --cask visual-studio-code
+brew install --cask wireshark
+# brew install --cask zotero
+brew install --cask fluor
+brew install --cask microsoft-edge
+# brew install --cask netnewswire
+# brew install --cask postman
+# brew install --cask proxyman
+# brew install --cask pycharm-ce
+brew install --cask sloth
+brew install --cask stats
+
 # Remove outdated versions from the cellar.
 brew cleanup
 
-# Install casks
-brew cask install alacritty
-# brew cask install anki
-brew cask install atext
-brew cask install authy
-brew cask install brave-browser
-# brew cask install coconutbattery
-brew cask install docker
-brew cask install font-fira-code-nerd-font
-brew cask install google-chrome
-brew cask install hammerspoon
-brew cask install itsycal
-brew cask install keka
-brew cask install keycastr
-brew cask install launchbar
-brew cask install meld
-brew cask install michaelvillar-timer
-brew cask install middleclick
-brew cask install miniconda
-# brew cask install noti
-# brew cask install numi
-brew cask install obsidian
-brew cask install openkey
-brew cask install qlcolorcode
-brew cask install qlmarkdown
-brew cask install qlstephen
-brew cask install quicklook-json
-brew cask install rectangle
-brew cask install spotify
-brew cask install suspicious-package
-# brew cask install textmate
-brew cask install visual-studio-code
-brew cask install wireshark
-# brew cask install zotero
-brew install fluor
-brew install microsoft-edge
-# brew install netnewswire
-# brew install postman
-# brew install proxyman
-# brew install pycharm-ce
-brew install sloth
-brew install stats
