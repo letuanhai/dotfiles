@@ -39,6 +39,8 @@ Plug 'itchyny/lightline.vim'          " Better Status Bar
 "Plug 'vim-airline/vim-airline-themes'
 "Plug 'mhinz/vim-startify'             " Better start screen
 " Plug 'scrooloose/nerdtree'            " File explorer
+" VimWiki
+Plug 'vimwiki/vimwiki'
 
 "Plug 'sjl/gundo.vim'                  " Undo Tree
 "Plug 'simnalamburt/vim-mundo'         " Gundo fork
