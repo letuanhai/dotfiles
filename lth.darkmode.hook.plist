@@ -13,10 +13,10 @@
 	<array>
 		<string>/Users/lth/Library/Preferences/.GlobalPreferences.plist</string>
 	</array>
-	<key>StandardOutPath</key>
-	<string>/Users/lth/dotfiles/bin/test.stdout</string>
-	<key>StandardErrorPath</key>
-	<string>/Users/lth/dotfiles/bin/test.stderr</string>
+	<!-- <key>StandardOutPath</key> -->
+	<!-- <string>/Users/lth/dotfiles/bin/test.stdout</string> -->
+	<!-- <key>StandardErrorPath</key> -->
+	<!-- <string>/Users/lth/dotfiles/bin/test.stderr</string> -->
 	<key>ProgramArguments</key>
 	<array>
 		<string>/bin/sh</string>
