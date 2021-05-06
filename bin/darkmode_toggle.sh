@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Check OS
+os_name=$(uname -s)
+if [ "$os_name" != "Darwin" ]
+then
+  echo "Error: Only works on MacOS."
+  exit 1
+fi
+
 defaults read -g AppleInterfaceStyle 1>/dev/null 2>&1
 
 if [ $? -eq 0 ]
