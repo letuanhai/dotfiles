@@ -19,14 +19,6 @@ alias h='history'
 alias j='jobs -l'
 
 
-
-# Shortcuts
-
-mvr () {
-    # reverse mv
-    mv $2 $1
-}
-
 ## Git
 alias ga='git add'
 alias gs='git status'
@@ -145,34 +137,16 @@ fi
 case "$(uname -s)" in
 
    Darwin)
-     # 'Mac OS X'
+     # echo 'Mac OS X'
 
      alias clear-dnscache="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
      alias bu="brew update && brew outdated | xargs brew upgrade  && brew cleanup -s --prune=0"
 
-     alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome &"
-
-     alias mvf='mv "$(pfs)"' # Move current finder selection
-
-     # MacOS GNUs
-     for i in awk cat chgrp chmod chown chroot cut date df du echo egrep env false fgrep find join kill link ln logname make mknod mktemp nice nohup paste perf printf pwd readlink realpath rmdir sed sort split tac tail tar tee test touch tr true truncate tty uniq unlink uptime users who whoami yes; do
-     alias readlink="greadlink"
-       alias_if_exists "$i" "g$i"
-     done
-     alias_if_exists "id" "/usr/local/bin/gid"
-     alias rm="/usr/local/bin/grm -I"
-     alias mv="/usr/local/bin/gmv -i"
-     alias cp="/usr/local/bin/gcp -i"
-
-     unalias ls 2>/dev/null
-     alias ls="/usr/local/bin/gls --color=auto"
-     alias la="/usr/local/bin/gls -lA --color=auto"
-
-     unalias grep 2>/dev/null
-     alias grep="/usr/local/bin/ggrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}"
-
-     unalias mkdir 2>/dev/null
-     alias mkdir="/usr/local/bin/gmkdir -pv"
+     # Apple Silicon
+      if [ "$(uname -m)" = "arm64" ]; then
+        alias brewr="arch -x86_64 /usr/local/bin/brew $@"
+        alias leg="arch -x86_64 $@"
+      fi
 
      ;;
 
