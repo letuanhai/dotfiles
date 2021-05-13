@@ -40,6 +40,7 @@ zstyle ':z4h:ssh:*' send-extra-files '~/.nanorc' '~/.env.zsh'
 # up-to-date. Cloned files can be used after `z4h init`. This is just an
 # example. If you don't plan to use Oh My Zsh, delete this line.
 z4h install ohmyzsh/ohmyzsh || return
+z4h install esc/conda-zsh-completion || return
 
 # Install or update core components (fzf, zsh-autosuggestions, etc.) and
 # initialize Zsh. After this point console I/O is unavailable until Zsh
@@ -60,10 +61,11 @@ z4h source ~/.env
 # Use additional Git repositories pulled in with `z4h install`.
 #
 # This is just an example that you should delete. It does nothing useful.
-z4h source $Z4H/ohmyzsh/ohmyzsh/lib/diagnostics.zsh
+# z4h source $Z4H/ohmyzsh/ohmyzsh/lib/diagnostics.zsh
 z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/nvm/nvm.plugin.zsh
 z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/fasd/fasd.plugin.zsh
-fpath+=($Z4H/ohmyzsh/ohmyzsh/plugins/supervisor)
+# fpath+=($Z4H/ohmyzsh/ohmyzsh/plugins/supervisor)
+fpath+=($Z4H/esc/conda-zsh-completion)
 
 # Define key bindings.
 z4h bindkey undo Ctrl+/  # undo the last command line change
@@ -83,6 +85,7 @@ autoload -Uz zmv
 function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
 compdef _directories md
 compdef _nvm nvm
+compdef _conda conda
 
 # Define named directories: ~w <=> Windows home directory on WSL.
 [[ -n $z4h_win_home ]] && hash -d w=$z4h_win_home
