@@ -20,8 +20,8 @@ function append_path() {
     fi
 }
 
-prepend_path "/usr/local/bin"
-prepend_path "/usr/local/sbin"
+# prepend_path "/usr/local/bin"
+# prepend_path "/usr/local/sbin"
 # prepend_path "$HOME/bin"           # Custom scripts
 # prepend_path "$HOME/.secbin"       # Secret custom scripts
 # prepend_path "$HOME/.local/bin"
@@ -100,10 +100,6 @@ fi
 case "$(uname -s)" in
 
    Darwin)
-    # source $HOME/Library/Preferences/org.dystroy.broot/launcher/bash/br
-    # Matlab
-    # export PATH="$PATH:/Applications/MATLAB_R2017b.app/bin"
-    # export TERM="xterm-256color"
     export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
     export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
     ;;
