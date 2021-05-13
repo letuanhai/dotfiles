@@ -31,7 +31,7 @@ unalias gd 2>/dev/null
 alias gd='git diff'
 alias gsu='git stash && git pull && git stash pop'
   # Note that gs is also ghostscript
-alias ghostscript="/usr/local/bin/gs"
+alias ghostscript="$(brew --prefix)/bin/gs"
 
 ## Jupyter
 # alias jc="jupyter console"
