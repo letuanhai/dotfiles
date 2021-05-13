@@ -86,18 +86,49 @@ if command -v fzf > /dev/null; then
   # zle -N fzf-history
   # bindkey '^r' fzf-history
 
-  fh() {
+  function fh() {
     print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
   }
 
-  # fkill - kill process
-  fkill() {
-    local pid
-    pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+  # fkillsev - kill server
+  fkillsev() {
+    # show output of "lsof -Pwni tcp", use [tab] to select one or multiple entries
+    # press [enter] to kill selected processes and go back to the process list.
+    # or press [escape] to go back to the process list. Press [escape] twice to exit completely.
+
+    local pid=$(lsof -Pwni tcp | sed 1d | eval "fzf ${FZF_DEFAULT_OPTS} -m --header='[kill:tcp]'" | awk '{print $2}')
 
     if [ "x$pid" != "x" ]
     then
       echo $pid | xargs kill -${1:-9}
+      ks
+    fi
+  }
+
+  # fkill - kill process
+  fkill() {
+    # show output of "ps -ef", use [tab] to select one or multiple entries
+    # press [enter] to kill selected processes and go back to the process list.
+    # or press [escape] to go back to the process list. Press [escape] twice to exit completely.
+  
+    local pid=$(ps -ef | sed 1d | eval "fzf ${FZF_DEFAULT_OPTS} -m --header='[kill:process]'" | awk '{print $2}')
+
+    if [ "x$pid" != "x" ]
+    then
+      echo $pid | xargs kill -${1:-9}
+    fi
+  }
+
+  # fp - find path
+  fp() {
+    # list directories in $PATH, press [enter] on an entry to list the executables inside.
+    # press [escape] to go back to directory listing, [escape] twice to exit completely
+
+    local loc=$(echo $PATH | sed -e $'s/:/\\\n/g' | eval "fzf ${FZF_DEFAULT_OPTS} --header='[find:path]'")
+
+    if [[ -d $loc ]]; then
+      echo "$(rg --files $loc | rev | cut -d"/" -f1 | rev)" | eval "fzf ${FZF_DEFAULT_OPTS} --header='[find:exe] => ${loc}' >/dev/null"
+      fp
     fi
   }
 
@@ -120,6 +151,20 @@ if command -v fzf > /dev/null; then
   #less on fuzzy find
   fl() {
     less $(fzf)
+  }
+
+  # bip - BREW + FZF = Brew Install Plugin
+  bip() {
+    # search and install multiple packages at once
+
+    local inst=$(brew search "$1"| eval "fzf ${FZF_DEFAULT_OPTS} -m --header='[brew:install]'")
+
+    if [[ $inst ]]; then
+      for prog in $(echo $inst); do
+        echo "Installing $prog"
+        brew install $prog
+      done
+    fi
   }
 
 fi
