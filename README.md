@@ -1,6 +1,7 @@
-#TODO: add romkatv/zsh4humans to config files
 
-Install `pyenv` with Homebrew but `nvm` manually.
+## Shell
+Use Zsh with [romkatv/zsh4humans](https://github.com/romkatv/zsh4humans) config.
+Note: Use v5 for Apple Silicon support.
 
 ## Install Homebrew
 > `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
@@ -15,3 +16,5 @@ Some aliases for Apple Silicon:
 
 Reference: [1](https://www.wisdomgeek.com/development/installing-intel-based-packages-using-homebrew-on-the-m1-mac/), 
 [2](https://medium.com/m/global-identity?redirectUrl=https%3A%2F%2Fcodeburst.io%2Fmy-ultimate-m1-mac-developer-setup-cfdb2daeed2d)
+
+Install `pyenv` with Homebrew but `nvm` manually.

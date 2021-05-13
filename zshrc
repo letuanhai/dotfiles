@@ -1,154 +1,100 @@
-# zmodload zsh/zprof
-# Enabling Color Prompts
-autoload colors zsh/terminfo
-colors
-
-# History size
-#set history size
-export HISTSIZE=10000
-#save history after logout
-export SAVEHIST=10000
-#history file
-export HISTFILE=~/.zhistory
-#append into history file
-setopt INC_APPEND_HISTORY
-#save only one command if 2 common are same and consistent
-setopt HIST_IGNORE_DUPS
-#add timestamp for each entry
-setopt EXTENDED_HISTORY
-
-# ALIASES
-if [ -f ~/.aliases ]; then
-    source ~/.aliases
-fi
-
-# Autostart Tmux
-#if [ "$TMUX" = "" ]; then tmux; fi
-
-# Auto CD
-setopt auto_cd
-
-#============================================================================
-#PACKAGES
-#============================================================================
-
-# # ## Package manager if [[ ! -f ~/antigen.zsh ]]; then
-# #   curl -L git.io/antigen > ~/antigen.zsh
-# # fi
-# # source ~/antigen.zsh
-# source /usr/local/share/antigen/antigen.zsh
-
-# # Load the oh-my-zsh's library.
-# antigen use oh-my-zsh
-
-# # Syntax Highlighting
-# antigen bundle zsh-users/zsh-syntax-highlighting            # should be sourced at the end .zshrc
-
-# # Autocomplete
-# antigen bundle zsh-users/zsh-autosuggestions
-# antigen bundle zsh-users/zsh-completions
-
-# antigen bundle git
-# antigen bundle docker
-# antigen bundle docker-compose
-# antigen bundle command-not-found
-# # antigen bundle rupa/z
-# # antigen bundle clvv/fasd
-
-# # Theme
-# # antigen theme denysdovhan/spaceship-prompt
-# antigen theme robbyrussell
-
-# # Tell Antigen that you're done.
-# antigen apply
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/usr/local/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
-        . "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh"
-    else
-        export PATH="/usr/local/Caskroom/miniconda/base/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-#============================================================================
-# Syntax highlighting color
-#============================================================================
+# Personal Zsh configuration file. It is strongly recommended to keep all
+# shell customization and configuration (including exported environment
+# variables such as PATH) in this file or in files source by it.
 #
-# Enable highlighters
-# ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
+# Documentation: https://github.com/romkatv/zsh4humans/blob/v5/README.md.
 
-# # Override highlighter colors
-# ZSH_HIGHLIGHT_STYLES[default]=none
-# ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=009
-# ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=009,standout
-# ZSH_HIGHLIGHT_STYLES[alias]=fg=cyan,bold
-# ZSH_HIGHLIGHT_STYLES[builtin]=fg=cyan,bold
-# ZSH_HIGHLIGHT_STYLES[function]=fg=cyan,bold
-# ZSH_HIGHLIGHT_STYLES[command]=fg=cyan,bold
-# ZSH_HIGHLIGHT_STYLES[precommand]=fg=cyan,underline
-# ZSH_HIGHLIGHT_STYLES[commandseparator]=none
-# ZSH_HIGHLIGHT_STYLES[hashed-command]=fg=009
-# ZSH_HIGHLIGHT_STYLES[path]=fg=214,underline
-# ZSH_HIGHLIGHT_STYLES[globbing]=fg=063
-# ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=gray,underline
-# ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=none
-# ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=none
-# ZSH_HIGHLIGHT_STYLES[back-quoted-argument]=none
-# ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=063
-# ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=063
-# ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=009
-# ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=009
-# ZSH_HIGHLIGHT_STYLES[assign]=none
+# Periodic auto-update on Zsh startup: 'ask' or 'no'.
+zstyle ':z4h:' auto-update      'ask'
+# Ask whether to auto-update this often; has no effect if auto-update is 'no'.
+zstyle ':z4h:' auto-update-days '28'
 
-# fzf
-#============================================================================
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Automaticaly wrap TTY with a transparent tmux ('integrated'), or start a
+# full-fledged tmux ('system'), or disable features that require tmux ('no').
+zstyle ':z4h:' start-tmux       'system'
+# Move prompt to the bottom when zsh starts up so that it's always in the
+# same position. Has no effect if start-tmux is 'no'.
+zstyle ':z4h:' prompt-at-bottom 'yes'
 
-# vi mode with status indicator
-#============================================================================
-# https://gist.github.com/chrismccord/6723644
-# http://pawelgoscicki.com/archives/2012/09/vi-mode-indicator-in-zsh-prompt/
-#bindkey -v
-#
-#vim_ins_mode="%{$fg[cyan]%}[INS]%{$reset_color%}"      # Insert mode status
-#vim_cmd_mode="%{$fg[red]%}[CMD]%{$reset_color%}"       # Command mode status
-#vim_mode=$vim_ins_mode
-#
-#function zle-keymap-select {
-#  vim_mode="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
-#  zle reset-prompt
-#}
-#zle -N zle-keymap-select
-#
-#function zle-line-finish {
-#  vim_mode=$vim_ins_mode
-#}
-#zle -N zle-line-finish
-#
-## Fix a bug when you C-c in CMD mode and you'd be prompted with CMD mode indicator, while in fact you would be in INS mode
-## Fixed by catching SIGINT (C-c), set vim_mode to INS and then repropagate the SIGINT, so if anything else depends on it, we will not break it
-#function TRAPINT() {
-#  vim_mode=$vim_ins_mode
-#  return $(( 128 + $1 ))
-#}
-#
-#RPROMPT='${vim_mode}'
-#RPROMPT2='${vim_mode}'
-#setopt transient_rprompt # don't show command modes on previously accepted lines
+# Keyboard type: 'mac' or 'pc'.
+zstyle ':z4h:bindkey' keyboard  'mac'
 
-# Key binding
-#============================================================================
-bindkey '^ ' forward-word
+# Right-arrow key accepts one character ('partial-accept') from
+# command autosuggestions or the whole thing ('accept')?
+zstyle ':z4h:autosuggestions' forward-char 'accept'
 
-# Environment setup
-#============================================================================
-if [ -f ~/.env ]; then
-    source ~/.env
-fi
+# Enable ('yes') or disable ('no') automatic teleportation of z4h over
+# ssh when connecting to these hosts.
+zstyle ':z4h:ssh:example-hostname1'   enable 'yes'
+zstyle ':z4h:ssh:*.example-hostname2' enable 'no'
+# The default value if none of the overrides above match the hostname.
+zstyle ':z4h:ssh:*'                   enable 'no'
+
+# Send these files over to the remote host when connecting over ssh to the
+# enabled hosts.
+zstyle ':z4h:ssh:*' send-extra-files '~/.nanorc' '~/.env.zsh'
+
+# Clone additional Git repositories from GitHub.
+#
+# This doesn't do anything apart from cloning the repository and keeping it
+# up-to-date. Cloned files can be used after `z4h init`. This is just an
+# example. If you don't plan to use Oh My Zsh, delete this line.
+z4h install ohmyzsh/ohmyzsh || return
+
+# Install or update core components (fzf, zsh-autosuggestions, etc.) and
+# initialize Zsh. After this point console I/O is unavailable until Zsh
+# is fully initialized. Everything that requires user interaction or can
+# perform network I/O must be done above. Everything else is best done below.
+z4h init || return
+
+# Extend PATH.
+path=(~/bin $path)
+
+# Export environment variables.
+export GPG_TTY=$TTY
+
+# Source additional local files if they exist.
+z4h source ~/.env.zsh
+z4h source ~/.env
+
+# Use additional Git repositories pulled in with `z4h install`.
+#
+# This is just an example that you should delete. It does nothing useful.
+z4h source $Z4H/ohmyzsh/ohmyzsh/lib/diagnostics.zsh
+z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/nvm/nvm.plugin.zsh
+z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/fasd/fasd.plugin.zsh
+fpath+=($Z4H/ohmyzsh/ohmyzsh/plugins/supervisor)
+
+# Define key bindings.
+z4h bindkey undo Ctrl+/  # undo the last command line change
+z4h bindkey redo Alt+/   # redo the last undone command line change
+
+z4h bindkey z4h-cd-back    Shift+Left   # cd into the previous directory
+z4h bindkey z4h-cd-forward Shift+Right  # cd into the next directory
+z4h bindkey z4h-cd-up      Shift+Up     # cd into the parent directory
+z4h bindkey z4h-cd-down    Shift+Down   # cd into a child directory
+
+z4h bindkey forward-word Ctrl+Space
+
+# Autoload functions.
+autoload -Uz zmv
+
+# Define functions and completions.
+function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
+compdef _directories md
+compdef _nvm nvm
+
+# Define named directories: ~w <=> Windows home directory on WSL.
+[[ -n $z4h_win_home ]] && hash -d w=$z4h_win_home
+
+# Define aliases.
+alias tree='tree -a -I .git'
+
+# Add flags to existing aliases.
+alias ls="${aliases[ls]:-ls} -A"
+## Source custom aliases
+z4h source ~/.aliases
+
+# Set shell options: http://zsh.sourceforge.net/Doc/Release/Options.html.
+setopt glob_dots     # no special treatment for file names with a leading dot
+setopt no_auto_menu  # require an extra TAB press to open the completion menu
