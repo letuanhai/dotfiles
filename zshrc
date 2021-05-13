@@ -63,6 +63,7 @@ z4h source ~/.env
 # This is just an example that you should delete. It does nothing useful.
 # z4h source $Z4H/ohmyzsh/ohmyzsh/lib/diagnostics.zsh
 z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/nvm/nvm.plugin.zsh
+z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/pyenv/pyenv.plugin.zsh
 z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/fasd/fasd.plugin.zsh
 # fpath+=($Z4H/ohmyzsh/ohmyzsh/plugins/supervisor)
 fpath+=($Z4H/esc/conda-zsh-completion)
