@@ -73,18 +73,18 @@ alias td='tmux detach'
 # fzf
 if command -v fzf > /dev/null; then
 
-  function fzf-history() {
-      local tac
-      if which tac > /dev/null; then
-          tac="tac"
-      else
-          tac="tail -r"
-      fi
-      BUFFER=$(\history -n 1 | fzf)
-      CURSOR=$#BUFFER
-  }
-  zle -N fzf-history
-  bindkey '^r' fzf-history
+  # function fzf-history() {
+  #     local tac
+  #     if which tac > /dev/null; then
+  #         tac="tac"
+  #     else
+  #         tac="tail -r"
+  #     fi
+  #     BUFFER=$(\history -n 1 | fzf)
+  #     CURSOR=$#BUFFER
+  # }
+  # zle -N fzf-history
+  # bindkey '^r' fzf-history
 
   fh() {
     print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
