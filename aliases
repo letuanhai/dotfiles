@@ -49,7 +49,8 @@ alias printpath='echo $PATH | sed "s/:/\\n/g"'
 # alias path='echo -e ${PATH//:/\\n}'
 # Other
 alias sep='seq -s = $(tput cols) | sed "s/[0-9]//g"'
-alias rg='sep; rg'
+# Somehow setting rg='sep; rg' is buggy
+alias srg='sep; rg'
 
 ## Tmux
 alias tn='tmux new -s'
