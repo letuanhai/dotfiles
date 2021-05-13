@@ -11,21 +11,22 @@ function alias_if_exists() {
 alias crontab="VIM_CRONTAB=true crontab"
 alias_if_exists 'diff' 'colordiff'
 alias_if_exists 'nv' 'nvim'
-alias_if_exists 'g' 'git'
 alias_if_exists 'c' 'clear'
 alias l.='ls -d .* --color=auto'
 alias mount='mount |column -t'
 alias h='history'
+unalias j
 alias j='jobs -l'
 
 
 ## Git
+alias_if_exists 'g' 'git'
 alias ga='git add'
 alias gs='git status'
 alias gcm='git commit -v'
 alias gck='git checkout'
 alias gu='git pull'
-alias gg='git graph'
+# alias gg='git graph'
 unalias gd 2>/dev/null
 alias gd='git diff'
 alias gsu='git stash && git pull && git stash pop'
@@ -33,27 +34,39 @@ alias gsu='git stash && git pull && git stash pop'
 alias ghostscript="/usr/local/bin/gs"
 
 ## Jupyter
-alias jc="jupyter console"
-alias jco="jupyter nbconvert"
-alias jn="jupyter notebook"
-alias jn-b="jupyter notebook --no-browser"
+# alias jc="jupyter console"
+# alias jco="jupyter nbconvert"
+# alias jn="jupyter notebook"
+# alias jn-b="jupyter notebook --no-browser"
 
 ## Misc
 alias my-ip="curl ipinfo.io/ip 2> /dev/null"
-alias spell='aspell check --dont-backup'
-alias grepc="grep -P --color=always" #Color grep
+# alias spell='aspell check --dont-backup'
+# alias grepc="grep -P --color=always" #Color grep
 alias now='date +"%T"'
 alias cdate='date +"%d-%m-%Y"'
 alias printpath='echo $PATH | sed "s/:/\\n/g"'
-alias path='echo -e ${PATH//:/\\n}'
+# alias path='echo -e ${PATH//:/\\n}'
 # Other
-alias sep='tput cols | python -c "import sys; print(\"=\"*int(sys.stdin.read().strip()))"'
+alias sep='seq -s = $(tput cols) | sed "s/[0-9]//g"'
 alias rg='sep; rg'
 
 ## Tmux
 alias tn='tmux new -s'
 alias ta='tmux a -t'
 alias td='tmux detach'
+function tm () {
+  # if installed:
+  # if not connected to an existing session, attach to it.
+  # if no session exists, create it and attach to it.
+
+  if hash tmux &> /dev/null; then
+    case $- in *i*)
+      [ -z "$TMUX" ] && tmux new -A -s $(whoami)
+    esac
+  else
+  fi
+}
 
 ###########################################################################################################################
 # Function
@@ -70,8 +83,8 @@ if command -v fzf > /dev/null; then
       BUFFER=$(\history -n 1 | fzf)
       CURSOR=$#BUFFER
   }
-  # zle -N fzf-history
-  # bindkey '^r' fzf-history
+  zle -N fzf-history
+  bindkey '^r' fzf-history
 
   fh() {
     print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
