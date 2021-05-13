@@ -132,14 +132,14 @@ if command -v fzf > /dev/null; then
     fi
   }
 
-  v() {
-    local file
-    if [[ -f $1 ]]; then
-        nvim $1
-    else
-        file="$(fasd -Rfl "$1" | fzf -1 -0 --no-sort +m)" && nvim "${file}" || return 1
-    fi
-  }
+  # v() {
+  #   local file
+  #   if [[ -f $1 ]]; then
+  #       nvim $1
+  #   else
+  #       file="$(fasd -Rfl "$1" | fzf -1 -0 --no-sort +m)" && nvim "${file}" || return 1
+  #   fi
+  # }
 
   if command -v subl > /dev/null; then
     u() {
