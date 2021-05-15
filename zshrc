@@ -65,7 +65,9 @@ z4h source ~/.env
 z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/nvm/nvm.plugin.zsh
 z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/pyenv/pyenv.plugin.zsh
 z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/fasd/fasd.plugin.zsh
-# fpath+=($Z4H/ohmyzsh/ohmyzsh/plugins/supervisor)
+z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/docker-compose/docker-compose.plugin.zsh
+fpath+=($Z4H/ohmyzsh/ohmyzsh/plugins/docker)
+fpath+=($Z4H/ohmyzsh/ohmyzsh/plugins/docker-compose)
 fpath+=($Z4H/esc/conda-zsh-completion)
 
 # Define key bindings.
@@ -87,6 +89,8 @@ function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
 compdef _directories md
 compdef _nvm nvm
 compdef _conda conda
+compdef _docker docker
+compdef _docker-compose docker-compose
 
 # Define named directories: ~w <=> Windows home directory on WSL.
 [[ -n $z4h_win_home ]] && hash -d w=$z4h_win_home
