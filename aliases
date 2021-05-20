@@ -169,6 +169,22 @@ if command -v fzf > /dev/null; then
     fi
   }
 
+  # bif - BREW + FZF = Brew Plugin Info
+  bif() {
+    # search and find info of multiple packages at once
+
+    local inst=$(brew search "$1"| eval "fzf ${FZF_DEFAULT_OPTS} -m --header='[brew:info]'")
+
+    if [[ $inst ]]; then
+      for prog in $(echo $inst); do
+        brew info $prog
+        echo
+        seq -s = $(tput cols) | sed "s/[0-9]//g"
+        echo; echo
+      done
+    fi
+  }
+
 fi
 
 ## Ripgrep-all
