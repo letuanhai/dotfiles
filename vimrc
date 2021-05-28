@@ -15,7 +15,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " Movement
-" Plug 'justinmk/vim-sneak'
+Plug 'justinmk/vim-sneak'
 " Plug 'easymotion/vim-easymotion'
 " Plug 'haya14busa/incsearch-easymotion.vim'
 "Plug 'wikitopian/hardmode'            " Disable arrow keys and similar
@@ -135,13 +135,13 @@ let g:indentLine_char = "⟩"
 
 " justinmk/vim-sneak
 " -------------------------------
-"let g:sneak#s_next = 1
-"nmap f <Plug>Sneak_f
-"nmap F <Plug>Sneak_F
-"xmap f <Plug>Sneak_f
-"xmap F <Plug>Sneak_F
-"omap f <Plug>Sneak_f
-"omap F <Plug>Sneak_F
+let g:sneak#s_next = 1
+nmap f <Plug>Sneak_f
+nmap F <Plug>Sneak_F
+xmap f <Plug>Sneak_f
+xmap F <Plug>Sneak_F
+omap f <Plug>Sneak_f
+omap F <Plug>Sneak_F
 " -------------------------------
 
 " ALE
@@ -154,11 +154,11 @@ let g:ale_lint_on_save = 1
 " Easymotion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use uppercase target labels and type as a lower case
-"let g:EasyMotion_use_upper = 1
-"let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
-"" Turn on case-insensitive feature
-"let g:EasyMotion_smartcase = 1
-"map <Leader> <Plug>(easymotion-prefix)
+" let g:EasyMotion_use_upper = 1
+" let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
+" " Turn on case-insensitive feature
+" let g:EasyMotion_smartcase = 1
+" map <Leader> <Plug>(easymotion-prefix)
 
 " vim-easy-align
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -182,7 +182,7 @@ set nocompatible " Vi compatible mode is disabled so that Vim things work
 
 " Colorscheme
 set termguicolors
-set background=light
+set background=dark
 colorscheme iceberg
 let g:python_highlight_all = 1
 syntax on           " enable syntax processing
