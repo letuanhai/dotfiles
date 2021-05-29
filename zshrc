@@ -5,13 +5,14 @@
 # Documentation: https://github.com/romkatv/zsh4humans/blob/v5/README.md.
 
 # Periodic auto-update on Zsh startup: 'ask' or 'no'.
+# You can manually run `z4h update` to update everything.
 zstyle ':z4h:' auto-update      'ask'
 # Ask whether to auto-update this often; has no effect if auto-update is 'no'.
 zstyle ':z4h:' auto-update-days '28'
 
 # Automaticaly wrap TTY with a transparent tmux ('integrated'), or start a
 # full-fledged tmux ('system'), or disable features that require tmux ('no').
-zstyle ':z4h:' start-tmux       'system'
+zstyle ':z4h:' start-tmux       'no'
 # Move prompt to the bottom when zsh starts up so that it's always in the
 # same position. Has no effect if start-tmux is 'no'.
 zstyle ':z4h:' prompt-at-bottom 'yes'
@@ -22,6 +23,9 @@ zstyle ':z4h:bindkey' keyboard  'mac'
 # Right-arrow key accepts one character ('partial-accept') from
 # command autosuggestions or the whole thing ('accept')?
 zstyle ':z4h:autosuggestions' forward-char 'accept'
+
+# Recursively traverse directories when TAB-completing files.
+zstyle ':z4h:fzf-complete' recurse-dirs 'yes'
 
 # Enable ('yes') or disable ('no') automatic teleportation of z4h over
 # ssh when connecting to these hosts.
@@ -61,7 +65,10 @@ z4h source ~/.env
 # Use additional Git repositories pulled in with `z4h install`.
 #
 # This is just an example that you should delete. It does nothing useful.
-# z4h source $Z4H/ohmyzsh/ohmyzsh/lib/diagnostics.zsh
+z4h source $Z4H/ohmyzsh/ohmyzsh/lib/diagnostics.zsh
+z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/emoji-clock/emoji-clock.plugin.zsh
+fpath+=($Z4H/ohmyzsh/ohmyzsh/plugins/supervisor)
+
 z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/nvm/nvm.plugin.zsh
 z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/pyenv/pyenv.plugin.zsh
 z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/fasd/fasd.plugin.zsh
@@ -71,6 +78,7 @@ fpath+=($Z4H/ohmyzsh/ohmyzsh/plugins/docker)
 fpath+=($Z4H/ohmyzsh/ohmyzsh/plugins/docker-compose)
 fpath+=($Z4H/ohmyzsh/ohmyzsh/plugins/pip)
 fpath+=($Z4H/esc/conda-zsh-completion)
+
 
 # Define key bindings.
 z4h bindkey undo Ctrl+/  # undo the last command line change
@@ -95,6 +103,7 @@ compdef _docker docker
 compdef _docker-compose docker-compose
 compdef _pip pip
 
+
 # Define named directories: ~w <=> Windows home directory on WSL.
 [[ -n $z4h_win_home ]] && hash -d w=$z4h_win_home
 
@@ -105,6 +114,7 @@ alias tree='tree -a -I .git'
 alias ls="${aliases[ls]:-ls} -A"
 ## Source custom aliases
 z4h source ~/.aliases
+
 
 # Set shell options: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt glob_dots     # no special treatment for file names with a leading dot
