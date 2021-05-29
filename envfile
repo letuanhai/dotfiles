@@ -66,11 +66,11 @@ unset __conda_setup
 # export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # Configure Editor
-if command -v nvim > /dev/null; then
-    export EDITOR='nvim'
-else
-    export EDITOR='vim'
-fi
+#if command -v nvim > /dev/null; then
+#    export EDITOR='nvim'
+#else
+#    export EDITOR='vim'
+#fi
 
 
 ###########################################################################################################################
