@@ -92,7 +92,8 @@ z4h bindkey z4h-cd-down    Shift+Down   # cd into a child directory
 z4h bindkey forward-word Ctrl+Space
 
 # Autoload functions.
-autoload -Uz zmv
+autoload -Uz zmv bashcompinit
+bashcompinit
 
 # Define functions and completions.
 function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
@@ -103,6 +104,7 @@ compdef _docker docker
 compdef _docker-compose docker-compose
 compdef _pip pip
 
+eval "$(register-python-argcomplete pipx)"
 
 # Define named directories: ~w <=> Windows home directory on WSL.
 [[ -n $z4h_win_home ]] && hash -d w=$z4h_win_home
