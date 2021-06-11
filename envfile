@@ -102,8 +102,17 @@ unset __conda_setup
 case "$(uname -s)" in
 
    Darwin)
-    export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
-    export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+    export LDFLAGS="-L$(brew --prefix openssl@1.1)/lib $LDFLAGS"
+    export CPPFLAGS="-I$(brew --prefix openssl@1.1)/include $CPPFLAGS"
+    export PKG_CONFIG_PATH="$(brew --prefix openssl@1.1)/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+    export LDFLAGS="-L$(brew --prefix readline)/lib $LDFLAGS"
+    export CPPFLAGS="-I$(brew --prefix readline)/include $CPPFLAGS"
+    export PKG_CONFIG_PATH="$(brew --prefix readline)/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+    export LDFLAGS="-L$(brew --prefix xz)/lib $LDFLAGS"
+    export CPPFLAGlS="-I$(brew --prefix xz)/include $CPPFLAGS"
+    export PKG_CONFIG_PATH="$(brew --prefix xz)/lib/pkgconfig:$PKG_CONFIG_PATH"
     ;;
 
    Linux)
