@@ -67,6 +67,8 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'                        " Linting engine
 Plug 'maximbaz/lightline-ale'          " Lightline + Ale
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+
 
 " Syntactic language support
 " Plug 'nvim-treesitter/nvim-treesitter' " LSP syntax highlighting - (Note:
@@ -182,7 +184,7 @@ set nocompatible " Vi compatible mode is disabled so that Vim things work
 
 " Colorscheme
 set termguicolors
-set background=dark
+set background=light
 colorscheme iceberg
 let g:python_highlight_all = 1
 syntax on           " enable syntax processing
