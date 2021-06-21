@@ -113,6 +113,11 @@ case "$(uname -s)" in
     export LDFLAGS="-L$(brew --prefix xz)/lib $LDFLAGS"
     export CPPFLAGlS="-I$(brew --prefix xz)/include $CPPFLAGS"
     export PKG_CONFIG_PATH="$(brew --prefix xz)/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+    export LDFLAGS="-L$(brew --prefix libffi)/lib $LDFLAGS"
+    export CPPFLAGlS="-I$(brew --prefix libffi)/include $CPPFLAGS"
+    export PKG_CONFIG_PATH="$(brew --prefix libffi)/lib/pkgconfig:$PKG_CONFIG_PATH"
+
     ;;
 
    Linux)
