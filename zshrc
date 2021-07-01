@@ -45,6 +45,7 @@ zstyle ':z4h:ssh:*' send-extra-files '~/.nanorc' '~/.env.zsh'
 # example. If you don't plan to use Oh My Zsh, delete this line.
 z4h install ohmyzsh/ohmyzsh || return
 z4h install esc/conda-zsh-completion || return
+z4h install dbt-labs/dbt-completion.bash || return
 
 # Install or update core components (fzf, zsh-autosuggestions, etc.) and
 # initialize Zsh. After this point console I/O is unavailable until Zsh
@@ -78,6 +79,7 @@ fpath+=($Z4H/ohmyzsh/ohmyzsh/plugins/docker)
 fpath+=($Z4H/ohmyzsh/ohmyzsh/plugins/docker-compose)
 fpath+=($Z4H/ohmyzsh/ohmyzsh/plugins/pip)
 fpath+=($Z4H/esc/conda-zsh-completion)
+fpath+=($Z4H/dbt-labs/dbt-completion.bash)
 
 
 # Define key bindings.
