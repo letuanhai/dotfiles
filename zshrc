@@ -98,11 +98,6 @@ bashcompinit
 # Define functions and completions.
 function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
 compdef _directories md
-compdef _nvm nvm
-compdef _conda conda
-compdef _docker docker
-compdef _docker-compose docker-compose
-compdef _pip pip
 
 eval "$(register-python-argcomplete pipx)"
 
